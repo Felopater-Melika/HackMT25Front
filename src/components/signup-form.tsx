@@ -26,7 +26,7 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
                 headers: { "Content-Type": "application/json" },
             })
             console.log("Login successful:", response.data)
-        } catch (error) {
+        } catch (error: any) {
             console.error("Error during login:", error.response?.data || error.message)
         }
     }

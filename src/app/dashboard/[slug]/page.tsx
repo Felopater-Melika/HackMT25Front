@@ -11,6 +11,7 @@ import {
   TableRow,
   TableHead,
   TableCell,
+  TableCaption,
 } from "~/components/ui/table";
 import {
   Modal,
@@ -20,6 +21,8 @@ import {
   useModal,
 } from "~/components/ui/animated-modal";
 import { DateTimePicker } from "~/components/date-picker";
+import { Label } from "~/components/ui/label";
+import { CallLog } from "~/components/calllog_display";
 
 // ----- New Form: Call Schedule Form -----
 const AddCallScheduleForm = () => {
@@ -55,7 +58,7 @@ const AddCallScheduleForm = () => {
             onChange={setScheduledTime}
           />
         </div>
-        <div>
+        {/* <div>
           <label className="block text-sm font-medium">Status</label>
           <select
             value={status}
@@ -65,7 +68,7 @@ const AddCallScheduleForm = () => {
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
           </select>
-        </div>
+        </div> */}
         <Button type="submit">Submit Call Schedule</Button>
       </form>
     </div>
@@ -362,8 +365,12 @@ function PageContent({ params }: { params: Promise<{ slug: string }> }) {
           </TableHeader>
           <TableBody>
             <TableRow
-              onClick={() =>
-                openModal(<div>Edit Call Log: Jane Doe, 5 mins</div>)
+              onClick={() => {
+                let transcript: string = "BlueBuddy: Hello Helene, this is BlueBuddy calling to check in on you. Helene: I am going to kill myself. BlueBuddy: Do it, you won't";
+                openModal(
+                  <CallLog first_name={"Helene"} datetime={"02/02/2025 at 6pm"} status={"confirmed"} transcript={transcript} follow_up={"Next week I will check to see if Helene is feeling better than last week"} concerns={"Helene is kinda gay"} summary={"Helene discussed her disdain for Vermin Supreme and his gang of tooth-brushing fairytail creatures"}/>
+                )
+              }
               }
               className="cursor-pointer"
             >
