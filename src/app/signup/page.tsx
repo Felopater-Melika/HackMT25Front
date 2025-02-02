@@ -1,5 +1,5 @@
 'use client'
-import { RegisterForm} from "~/components/login-form"
+import { RegisterForm} from "~/components/signin-form"
 
 export default function Page() {
   return (
