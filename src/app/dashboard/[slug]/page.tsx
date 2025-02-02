@@ -44,7 +44,7 @@ export default function Page({
         medication_status: "On Track",
       };
       axios
-        .post("http://localhost:8000", dummy_values, {
+        .post("http://localhost:8000/call_test", dummy_values, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {
